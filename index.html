@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrit Tiwari - Mechanical Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+	.profile-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* ===== Smooth Scroll ===== */
+html {
+    scroll-behavior: smooth;
+}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #000;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero .bio {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-info a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        section:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #1e3c72;
+        }
+
+        /* Education */
+        .education-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #2a5298;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+        }
+
+        .education-item h3 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .degree {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .details {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Experience */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .experience-card h3 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card .position {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card .duration {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .experience-card ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Hobbies Section */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hobby-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hobby-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-content {
+            padding: 2rem;
+        }
+
+        .video-link {
+            display: block;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            color: #1e3c72;
+            transition: background 0.3s;
+        }
+
+        .video-link:hover {
+            background: #e0e0e0;
+        }
+
+        .video-link::before {
+            content: '▶ ';
+            color: #ff0000;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Research Projects */
+        .project-card {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .project-card .supervisor {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .project-card ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        /* Awards */
+        .awards-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .award-item {
+            position: relative;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .award-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 1.5rem;
+            width: 15px;
+            height: 15px;
+            background: #2a5298;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #2a5298;
+        }
+
+        .award-year {
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Upload Instructions */
+        .upload-instructions {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .upload-instructions h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .upload-instructions p {
+            color: #856404;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Amrit Tiwari</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <section class="hero">
+    <div class="container">
+        <img src="images/profile.jpg" alt="Amrit Tiwari" class="profile-photo">
+
+        <h1>Amrit Tiwari</h1>
+        <p class="subtitle">Mechanical Engineer | Machine Learning Researcher | Acoustics & Dynamics</p>
+
+<p class="bio">
+PhD student in Mechanical Engineering at the University of Houston working at the intersection of
+machine learning, acoustics, and mechanical system dynamics.
+</p>
+
+<p class="bio">
+My research focuses on vibration and acoustic signal analysis, machine learning for mechanical
+fault detection, percussion sound analysis, and optimization of dynamic systems.
+I am particularly interested in data-driven approaches for automotive diagnostics,
+acoustic learning systems, and intelligent mechanical monitoring.
+</p>
+            <div class="contact-info">
+                <a href="mailto:atiwar23@cougarnet.uh.edu">📧 atiwar23@cougarnet.uh.edu</a>
+                <a href="tel:3465569547">📱 +01-3465569547</a>
+<a href="https://www.linkedin.com/in/amrit-tiwari-538a97144" target="_blank">
+        💼 LinkedIn
+    </a>
+                <a>📍 Houston, Texas</a>
+            </div>
+        </div>
+    </section>
+</html><section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #555;">
+               <p>
+I am a Mechanical Engineer and PhD student at the University of Houston with research interests
+at the intersection of mechanical systems, machine learning, and acoustics.
+My work focuses on understanding mechanical systems through data-driven methods,
+particularly vibration and acoustic signal analysis.
+</p>
+
+<p style="margin-top: 1rem;">
+My current research explores machine learning techniques for fault detection,
+percussion sound analysis, and acoustic learning systems.
+I work with signal processing techniques such as spectral analysis, MFCC-based features,
+and time-frequency analysis to interpret mechanical and acoustic phenomena.
+</p>
+
+<p style="margin-top: 1rem;">
+My broader interests include optimization of dynamic systems, automotive diagnostics,
+mechanical system monitoring, and intelligent sensing for engineering applications.
+I enjoy bridging traditional mechanical engineering with modern AI-driven approaches.
+</p>
+                <p style="margin-top: 1rem;">Beyond my professional work, I'm passionate about sharing knowledge through video tutorials and exploring creative storytelling through short films.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+   
+
+                                 
+               
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+             <div class="education-item">
+                <div class="degree">PHd in Mechanical  Engineering</div>
+                <h3>University oh Houston, USA</h3>
+                <div class="details">2025-Present </div>
+                <p><strong> Courses:</strong> Control System Design and Analysis,Optimal Control Theory, Machine Learning</p>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Master's in Mechanical System Design and Engineering</div>
+                <h3>Tribhuvan University, Institute of Engineering (IOE), Pulchowk Campus,Nepal</h3>
+                <div class="details">2020-2022 | Score: 88.33% (2nd in IOE MSMDE Program)</div>
+                <p><strong>Elective Courses:</strong> Advanced Vibration, Hydraulic and Pneumatic System, Non-Linear Vibration and Fluid Structure Interaction</p>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Bachelor's in Mechanical Engineering</div>
+                <h3>Tribhuvan University, Institute of Engineering (IOE), Pulchowk Campus,Nepal</h3>
+                <div class="details">2015-2019 | Score: 82.73% (4th in IOE BME Program)</div>
+                <p><strong>Elective Courses:</strong> Heating, Ventilation and Air Conditioning (HVAC), Building Services and Refrigeration</p>
+            </div>
+
+          
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-grid">
+<div class="experience-card">
+    <div class="position">Research Assistant / Teaching Assistant</div>
+    <h3>University of Houston – Department of Mechanical Engineering</h3>
+    <div class="duration">August 2025 - Present</div>
+    <p style="font-style: italic; color:#666;">Supervisor: Dr. Gangbing Song</p>
+
+    <ul>
+        <li>Machine learning for mechanical and acoustic systems</li>
+        <li>Vibration and acoustic signal analysis</li>
+        <li>Fault detection using data-driven methods</li>
+        <li>Assist teaching in mechanical engineering courses</li>
+        <li>Support laboratory and student projects</li>
+    </ul>
+</div>
+                <div class="experience-card">
+                    <div class="position">Mechanical Engineer</div>
+                    <h3>Mechanical Training Center, Department of Roads</h3>
+                    <div class="duration">August 2023 - Present</div>
+                    <ul>
+                        <li>Training Coordination and Delivery</li>
+                        <li>Equipment Maintenance and Management</li>
+                        <li>Procurement and Resource Management</li>
+                        <li>Project Management and Coordination</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="position">Lecturer</div>
+                    <h3>Department of Civil Engineering, Himalaya College of Engineering</h3>
+                    <div class="duration">November 2019 - August 2023</div>
+                    <ul>
+                        <li>Thermodynamics and Heat Transfer</li>
+                        <li>Engineering Drawing I & II</li>
+                        <li>Workshop Technology</li>
+                        <li>Building Services III</li>
+                        <li>Applied Dynamics</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="position">Part-Time Faculty</div>
+                    <h3>Pulchowk Campus</h3>
+                    <div class="duration">November 2022 - August 2023</div>
+                    <ul>
+                        <li>Engineering Drawing I & II</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="position">Part-Time Faculty</div>
+                    <h3>Pana Academy & Clamphook Academy</h3>
+                    <div class="duration">November 2019 - August 2023</div>
+                    <ul>
+                        <li>Project Planning and Implementation</li>
+                        <li>Physics (Heat & Thermodynamics)</li>
+                        <li>Mathematics (MSc Engineering Entrance Prep)</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="position">Intern</div>
+                    <h3>Gorkha Brewery Pvt Ltd.</h3>
+                    <div class="duration">September 2018 - November 2018</div>
+                    <ul>
+                        <li>Knowledge and Skill Development</li>
+                        <li>Factory Layout and Material Flow</li>
+                        <li>Inventory Management</li>
+                        <li>Utility Plant Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <h2>Research Projects</h2>
+            
+            <div class="project-card">
+    <h3>Dynamic Modelling and Response of a Pelton Bucket</h3>
+    <div class="supervisor"> Conference | XVII Vibration Engineering & Technology of Machinery Conference (VETOMAC 2022)</div>
+
+    <p>
+    <a href="https://www.researchgate.net/publication/398227729_DYNAMIC_MODELLING_AND_RESPONSE_OF_A_PELTON_BUCKET" target="_blank">
+    View Publication
+    </a>
+    </p>
+
+    <ul>
+        <li>Developed mathematical dynamic model of Pelton turbine bucket</li>
+        <li>Derived governing equations of motion for jet–bucket interaction</li>
+        <li>Analyzed vibration response under hydraulic excitation</li>
+        <li>Validated analytical model using numerical simulations</li>
+    </ul>
+</div>
+
+<div class="project-card">
+    <h3>Study on the Effect of Lateral–Torsional Coupling on the Vibrational Characteristics of a Rotating Cantilever Shaft–Disk System</h3>
+    <div class="supervisor">Conference | XVII Vibration Engineering & Technology of Machinery Conference (VETOMAC 2022)</div>
+
+
+    <p>
+    <a href="https://www.researchgate.net/publication/398753209_STUDY_ON_THE_EFFECT_OF_LATERAL_-TORSIONAL_COUPLING_ON_THE_VIBRATIONAL_CHARACTERISTICS_OF_A_ROTATING_CANTILEVER_SHAFT-DISK_SYSTEM" target="_blank">
+    View Publication
+    </a>
+    </p>
+
+    <ul>
+        <li>Investigated coupled lateral–torsional vibration in rotating shaft–disk systems</li>
+        <li>Developed dynamic model capturing shaft flexibility and coupling effects</li>
+        <li>Analyzed influence of coupling on natural frequencies and system stability</li>
+        <li>Provided insights for vibration control in rotating machinery</li>
+    </ul>
+</div>
+            <div class="project-card">
+                <h3>Design of HVAC System with Thermal Storage Integration (Undergraduate Major Project)</h3>
+                <div class="supervisor">Supervisor: Susan Bajhracharya (Associate Professor)</div>
+                <ul>
+                    <li>Conducted thermal load calculations for accurate HVAC sizing</li>
+                    <li>Designed an HVAC system tailored to the building's needs</li>
+                    <li>Integrated thermal storage to reduce peak load and enhance energy efficiency</li>
+                    <li>Performed cost-benefit analysis to assess economic viability</li>
+                </ul>
+            </div>
+        </div>
+    </section>s
+
+    <section id="awards">
+        <div class="container">
+            <h2>Awards & Honors</h2>
+            
+            <div class="awards-timeline">
+                <div class="award-item">
+                    <div class="award-year">2022</div>
+                    <p><strong>Graduate Student Research Fellowship (GSRF) Award</strong></p>
+                    <p>Amount: $1000 USD | American Society of Nepalese Engineers (ASNEngr)</p>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-year">2020</div>
+                    <p><strong>Full Scholarship for Master's Degree Program</strong></p>
+                    <p>Ranked 1st in Institute of Engineering entrance examination</p>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-year">2018</div>
+                    <p><strong>National Level B.E Design Competition Winner</strong></p>
+                    <p>Two-wheeler self-balancing vehicle</p>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-year">2016</div>
+                    <p><strong>Golden Jubilee Scholarship</strong></p>
+                    <p>Embassy of India, Kathmandu, Nepal</p>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-year">2016</div>
+                    <p><strong>Short Video Competition Winner</strong></p>
+                    <p>Organized by Greenepal.org and Leo Club of Kathmandu Eureka</p>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-year">2015</div>
+                    <p><strong>Full Scholarship for Bachelor's Program</strong></p>
+                    <p>Ranked 22nd in Institute of Engineering entrance examination</p>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-year">2015</div>
+                    <p><strong>District Second Position - HSEB Exam</strong></p>
+                    <p>Aroma College of Applied Science and Management, Chitwan</p>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-year">2013</div>
+                    <p><strong>District First Position - SLC Exam</strong></p>
+                    <p>Shree Bal Vikas English Boarding Higher Secondary School</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>MATLAB</li>
+                        <li>C</li>
+                        <li>Excel</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Software Packages</h3>
+                    <ul>
+                        <li>SolidWorks</li>
+                        <li>ANSYS</li>
+                        <li>MAPLE</li>
+                        <li>AutoCAD</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Engineering Expertise</h3>
+                    <ul>
+                        <li>HVAC Design</li>
+                        <li>Hydraulic System Design</li>
+                        <li>3D Printing</li>
+                        <li>OBD Diagnostics</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Research Areas</h3>
+                    <ul>
+                        <li>Dynamic Modeling</li>
+                        <li>Vibration Analysis</li>
+                        <li>Control Systems</li>
+                        <li>Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="hobbies">
+        <div class="container">
+            <h2>Hobbies & Creative Work</h2>
+            
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-header">
+                        <h3>🎬 Short Films</h3>
+                        <p>Creative Storytelling</p>
+                    </div>
+                    <div class="hobby-content">
+                        <p style="margin-bottom: 1.5rem; color: #555;">Exploring narratives through visual media and cinematography. Watch my collection of short films on YouTube.</p>
+                        
+                       <a href="https://www.youtube.com/@atcreations7838" class="video-link" target="_blank" style="display: block; text-align: center; padding: 1.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white; border-radius: 8px; text-decoration: none; margin-top: 1rem;">
+                            🎥 Visit My Short Films Channel
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hobby-card">
+                    <div class="hobby-header">
+                        <h3>📹 Educational Tutorials</h3>
+                        <p>Knowledge Sharing</p>
+                    </div>
+                    <div class="hobby-content">
+                        <p style="margin-bottom: 1.5rem; color: #555;">Creating educational content to help students and professionals learn mechanical engineering concepts, CAD software, and technical skills.</p>
+                        
+                        <a href="https://www.youtube.com/@learnwithusAS" class="video-link" target="_blank" class="video-link" target="_blank" style="display: block; text-align: center; padding: 1.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white; border-radius: 8px; text-decoration: none; margin-top: 1rem;">
+                            📚 Visit My Tutorial Channel
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hobby-card">
+                    <div class="hobby-header">
+                        <h3>🎨 Other Creative Work</h3>
+                        <p>Beyond Engineering</p>
+                    </div>
+                    <div class="hobby-content">
+                        <p style="margin-bottom: 1rem; color: #555;">Various creative and technical projects that combine engineering with artistic expression.</p>
+                        
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">📸 Photography</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✍️ Technical Writing</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">🎯 Innovation Challenges</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section id="gallery">
+    <div class="container">
+        <h2>Professional & Academic Journey</h2>
+        
+       
+
+        <h3 style="color: #1e3c72; margin: 2rem 0 1rem 0;">Graduation Ceremonies</h3>
+<div class="gallery-grid">
+
+    <div class="gallery-item">
+        <img src="images/graduation1.jpg" style="width:100%;height:250px;object-fit:cover;">
+        <div class="gallery-caption">Masters Graduation - 2022</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/graduation2.jpg" style="width:100%;height:250px;object-fit:cover;">
+        <div class="gallery-caption">Masters Graduation - 2022</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/graduation3.jpg" style="width:100%;height:250px;object-fit:cover;">
+        <div class="gallery-caption">With Family</div>
+    </div>
+
+</div>   <!-- IMPORTANT -->
+
+<h3 style="color: #1e3c72; margin: 2rem 0 1rem 0;">Workshop Modernization - HED Project</h3>
+<div class="gallery-grid">
+
+    <div class="gallery-item">
+        <img src="images/workshop1.jpg" style="width:100%;height:250px;object-fit:cover;">
+        <div class="gallery-caption">Automotive Electrical and Electronics Training</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/workshop3.jpg" style="width:100%;height:250px;object-fit:cover;">
+        <div class="gallery-caption">Staff Training Session</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/workshop4.jpg" style="width:100%;height:250px;object-fit:cover;">
+        <div class="gallery-caption">Modernized Workshop</div>
+    </div>
+
+</div>  <!-- IMPORTANT -->
+
+        <h3 style="color: #1e3c72; margin: 2rem 0 1rem 0;">Teaching & Training</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/teaching1.jpg" alt="Teaching 1" style="width: 100%; height: 250px; object-fit: cover;">
+                <div class="gallery-caption">Lecturing about Advancement of Automobile Technology to students of IOE (Automobile and Industrial Engineering) </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/teaching2.jpg" alt="Teaching 2" style="width: 100%; height: 250px; object-fit: cover;">
+                <div class="gallery-caption">Engine Management System technology Training to CTEVT students</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/teaching3.jpg" alt="Teaching 3" style="width: 100%; height: 250px; object-fit: cover;">
+                <div class="gallery-caption">Hydrailic System Training to Nepal Army </div>
+            </div>
+        </div>
+
+        <h3 style="color: #1e3c72; margin: 2rem 0 1rem 0;">Research & Conferences</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/conference1.jpg" alt="Conference 1" style="width: 100%; height: 250px; object-fit: cover;">
+                <div class="gallery-caption">VETOMAC 2022 Attendence</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/conference2.jpg" alt="Conference 2" style="width: 100%; height: 250px; object-fit: cover;">
+                <div class="gallery-caption">VETOMAC 202-Presenting the Work</div>
+            </div>
+            
+           
+
+</div>   <!-- closes gallery-grid -->
+</div>   <!-- closes container -->
+</section>  <!-- closes gallery section -->
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #555;">
+                    I'm always interested in discussing new opportunities, research collaborations, or engineering challenges.
+                </p>
+                <div class="contact-info" style="color: #333; flex-direction: column; gap: 1rem;">
+                    <a href="mailto:atiwar23@cougarnet.uh.edu" style="color: #1e3c72; font-size: 1.1rem;">📧 atiwar23@cougarnet.uh.edu</a>
+                    <a href="tel:+1-346-556-9547" style="color: #1e3c72; font-size: 1.1rem;">📱 +1-346-556-9547</a>
+                    
+                    <p style="color: #1e3c72; font-size: 1.1rem;">📍 Houston, TX, USA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Amrit Tiwari. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+   
+
+    
