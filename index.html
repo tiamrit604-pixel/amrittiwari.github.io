@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }PH
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -84,6 +84,8 @@ html {
             color: #000;
             padding: 100px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero h1 {
@@ -124,6 +126,25 @@ html {
 
         .contact-info a:hover {
             transform: translateY(-3px);
+        }
+
+        /* ===== Hero Waveform Animation ===== */
+        #heroWave {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 320px;
+            opacity: 0.45;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         /* Sections */
@@ -511,6 +532,11 @@ html {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            #heroWave { display: none; }
+            html { scroll-behavior: auto; }
+        }
     </style>
 </head>
 <body>
@@ -534,6 +560,7 @@ html {
     </header>
 
    <section id="home" class="hero">
+    <canvas id="heroWave"></canvas>
     <div class="container">
         <img src="images/profile.jpg" alt="Amrit Tiwari" class="profile-photo">
 
@@ -561,7 +588,8 @@ acoustic learning systems, and intelligent mechanical monitoring.
             </div>
         </div>
     </section>
-</html><section id="about">
+
+<section id="about">
         <div class="container">
             <h2>About Me</h2>
             <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #555;">
@@ -589,12 +617,6 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
         </div>
     </section>
 
-    
-
-   
-
-                                 
-               
     <section id="education">
         <div class="container">
             <h2>Education</h2>
@@ -618,8 +640,6 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
                 <div class="details">2015-2019 | Score: 82.73% (4th in IOE BME Program)</div>
                 <p><strong>Elective Courses:</strong> Heating, Ventilation and Air Conditioning (HVAC), Building Services and Refrigeration</p>
             </div>
-
-          
         </div>
     </section>
 
@@ -783,7 +803,8 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
                 </ul>
             </div>
         </div>
-    </section>s
+    </section>
+
 <section id="awards">
     <div class="container">
         <h2>Awards & Honors</h2>
@@ -970,7 +991,7 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
                 <h3>312 - Introduction to Deep Learning</h3>
                 <p>Issued by: University of Houston</p>
 
-                <a href="https://www.credly.com/badges/a6ce07af-a57a-4644-83e2-041143156ee3/public_url
+                <a href="https://www.credly.com/badges/a6ce07af-a57a-4644-83e2-041143156ee3/public_url"
                    target="_blank"
                    class="credential-button">
                     View Credential
@@ -991,20 +1012,14 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
                 </a>
             </div>
 
-		
-
-			
         </div>
     </div>
 </section>
-
-    
 
    <section id="gallery">
     <div class="container">
         <h2>Professional & Academic Journey</h2>
         
-       
 		<h3 style="color: #1e3c72; margin: 2rem 0 1rem 0;">
     Machine Learning Competition
 </h3>
@@ -1078,7 +1093,6 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
 
 </div>
 		
-		
         <h3 style="color: #1e3c72; margin: 2rem 0 1rem 0;">Graduation Ceremonies</h3>
 <div class="gallery-grid">
 
@@ -1097,7 +1111,7 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
         <div class="gallery-caption">With Family</div>
     </div>
 
-</div>   <!-- IMPORTANT -->
+</div>
 
 <h3 style="color: #1e3c72; margin: 2rem 0 1rem 0;">Workshop Modernization - HED Project</h3>
 <div class="gallery-grid">
@@ -1117,7 +1131,7 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
         <div class="gallery-caption">Modernized Workshop</div>
     </div>
 
-</div>  <!-- IMPORTANT -->
+</div>
 
         <h3 style="color: #1e3c72; margin: 2rem 0 1rem 0;">Teaching & Training</h3>
         <div class="gallery-grid">
@@ -1148,12 +1162,10 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
                 <img src="images/conference2.jpg" alt="Conference 2" style="width: 100%; height: 250px; object-fit: cover;">
                 <div class="gallery-caption">VETOMAC 202-Presenting the Work</div>
             </div>
-            
-           
 
-</div>   <!-- closes gallery-grid -->
-</div>   <!-- closes container -->
-</section>  <!-- closes gallery section -->
+</div>
+</div>
+</section>
 
 <section id="hobbies">
         <div class="container">
@@ -1182,7 +1194,7 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
                     <div class="hobby-content">
                         <p style="margin-bottom: 1.5rem; color: #555;">Creating educational content to help students and professionals learn mechanical engineering concepts, CAD software, and technical skills.</p>
                         
-                        <a href="https://www.youtube.com/@learnwithusAS" class="video-link" target="_blank" class="video-link" target="_blank" style="display: block; text-align: center; padding: 1.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white; border-radius: 8px; text-decoration: none; margin-top: 1rem;">
+                        <a href="https://www.youtube.com/@learnwithusAS" class="video-link" target="_blank" style="display: block; text-align: center; padding: 1.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white; border-radius: 8px; text-decoration: none; margin-top: 1rem;">
                             📚 Visit My Tutorial Channel
                         </a>
                     </div>
@@ -1231,8 +1243,63 @@ I enjoy bridging traditional mechanical engineering with modern AI-driven approa
             <p>&copy; 2025 Amrit Tiwari. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    // Hero waveform — damped sinusoid (a percussion-induced acoustic signal), animated
+    (function () {
+        var c = document.getElementById('heroWave');
+        if (!c) return;
+        var ctx = c.getContext('2d');
+        var w, h, t = 0;
+
+        function resize() {
+            var r = window.devicePixelRatio || 1;
+            w = c.clientWidth;
+            h = c.clientHeight;
+            c.width = w * r;
+            c.height = h * r;
+            ctx.setTransform(r, 0, 0, r, 0, 0);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            var mid = h / 2;
+
+            // faint baseline
+            ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, mid);
+            ctx.lineTo(w, mid);
+            ctx.stroke();
+
+            // animated damped sine wave
+            ctx.beginPath();
+            for (var x = 0; x <= w; x++) {
+                var p = x / w;
+                var env = Math.exp(-3.0 * p);                // exponential decay
+                var y = mid - Math.sin(p * 20 - t) * env * h * 0.42;
+                if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            }
+            var g = ctx.createLinearGradient(0, 0, w, 0);
+            g.addColorStop(0, 'rgba(255,215,0,0.95)');       // gold (matches nav accent)
+            g.addColorStop(1, 'rgba(255,215,0,0.10)');
+            ctx.strokeStyle = g;
+            ctx.lineWidth = 2.4;
+            ctx.shadowColor = 'rgba(255,215,0,0.6)';
+            ctx.shadowBlur = 12;
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            t += 0.03;
+            requestAnimationFrame(draw);
+        }
+
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduce) draw();
+    })();
+    </script>
 </body>
-
-   
-
-    
+</html>
